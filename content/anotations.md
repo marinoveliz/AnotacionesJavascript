@@ -6,6 +6,7 @@
   - [Tabla de contenido](#tabla-de-contenido)
   - [Aspectos importantes del lenguaje](#aspectos-importantes-del-lenguaje)
   - [Tipos de Datos](#tipos-de-datos)
+    - [Variables: var VS let](#variables-var-vs-let)
   - [Estructuras de Control](#estructuras-de-control)
   - [Progrmacion Orientada a Objetos](#progrmacion-orientada-a-objetos)
   - [Objetos y funciones del lenguaje](#objetos-y-funciones-del-lenguaje)
@@ -38,6 +39,12 @@ Con JavaScript puedes:
 - etc.
 
 ## Tipos de Datos
+
+### Variables: var VS let
+
+La sentencia _var_ declara una variable, opcionalmente inicializándola con un valor.
+_Su ámbito es global._
+`var nombreDeVariable1 [= valor1] [, nombreDeVariable2 [= valor2] ... [, nombreDeVariableN [=valorN]]]; `
 
 ## Estructuras de Control
 
