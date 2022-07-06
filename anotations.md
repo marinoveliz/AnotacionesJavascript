@@ -1,8 +1,23 @@
 # Anotaciones Javascript
 
-_Tabla de contenido_
-[Introducción](#aspectos-importantes-del-lenguaje)
-[Tipo de Datos](#tipo-de-datos)
+## Tabla de contenido
+
+- [Anotaciones Javascript](#anotaciones-javascript)
+  - [Tabla de contenido](#tabla-de-contenido)
+  - [Aspectos importantes del lenguaje](#aspectos-importantes-del-lenguaje)
+  - [Tipos de Datos](#tipos-de-datos)
+  - [Estructuras de Control](#estructuras-de-control)
+  - [Progrmacion Orientada a Objetos](#progrmacion-orientada-a-objetos)
+  - [Objetos y funciones del lenguaje](#objetos-y-funciones-del-lenguaje)
+  - [Programación Asíncrona](#programación-asíncrona)
+  - [Nuevos Tipos y Características](#nuevos-tipos-y-características)
+  - [La instrucción this en Javascript](#la-instrucción-this-en-javascript)
+  - [Javascript Object Notation (JSON)](#javascript-object-notation-json)
+  - [Document Object Model (DOM)](#document-object-model-dom)
+  - [Asynchronous Javascript and XML (AJAX)](#asynchronous-javascript-and-xml-ajax)
+  - [APIs Rest](#apis-rest)
+  - [Single Page Aplication (SPA)](#single-page-aplication-spa)
+  - [Reactividad](#reactividad)
 
 ## Aspectos importantes del lenguaje
 
@@ -21,3 +36,29 @@ Con JavaScript puedes:
 - Aplicaciones Híbridas y Móviles.
 - Aprendizaje Automático.
 - etc.
+
+## Tipos de Datos
+
+## Estructuras de Control
+
+## Progrmacion Orientada a Objetos
+
+## Objetos y funciones del lenguaje
+
+## Programación Asíncrona
+
+## Nuevos Tipos y Características
+
+## La instrucción this en Javascript
+
+## Javascript Object Notation (JSON)
+
+## Document Object Model (DOM)
+
+## Asynchronous Javascript and XML (AJAX)
+
+## APIs Rest
+
+## Single Page Aplication (SPA)
+
+## Reactividad
