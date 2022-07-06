@@ -1,5 +1,9 @@
 # Anotaciones Javascript
 
+_Tabla de contenido_
+[Introducción](#aspectos-importantes-del-lenguaje)
+[Tipo de Datos](#tipo-de-datos)
+
 ## Aspectos importantes del lenguaje
 
 Hoy JavaScript, es el único lenguaje capaz de ejecutarse en las 3 capas de una aplicación:
