@@ -1,5 +1,9 @@
-Este contenido esta inspirdo en el blog y curso de Javascript de JonMircha con el único objetivo de hacer un resumen para revisar de manera rápida lo aprendido.
+En este repositorio ire agregando anotaciones sobre temas importnates del lenguaje JavaScript, con el único objetivo de hacer un resumen para revisar de manera rápida lo aprendido.
 
-Si llegas a leer esto pasate por su Blog y apoyalo.
+Las fuentes que sigo para aprender este lenguaje son la documentacionde de Mozilla y el curso de Youtube de JonMircha.
+
+[Mozilla Developers](https://developer.mozilla.org/es/docs/Web/JavaScript)
+
+Si llegas a leer esto pasate por su Blog de JonMircha y apoyalo.
 
 [Blog de JonMircha](https://jonmircha.com)
