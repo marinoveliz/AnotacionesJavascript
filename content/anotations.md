@@ -11,6 +11,9 @@
   - [Progrmacion Orientada a Objetos](#progrmacion-orientada-a-objetos)
   - [Objetos y funciones del lenguaje](#objetos-y-funciones-del-lenguaje)
   - [Programación Asíncrona](#programación-asíncrona)
+    - [Set](#set)
+    - [Map](#map)
+    - [WeakSet & WeakMap](#weakset--weakmap)
   - [Nuevos Tipos y Características](#nuevos-tipos-y-características)
   - [La instrucción this en Javascript](#la-instrucción-this-en-javascript)
   - [Javascript Object Notation (JSON)](#javascript-object-notation-json)
@@ -44,7 +47,10 @@ Con JavaScript puedes:
 
 La sentencia _var_ declara una variable, opcionalmente inicializándola con un valor.
 _Su ámbito es global._
-`var nombreDeVariable1 [= valor1] [, nombreDeVariable2 [= valor2] ... [, nombreDeVariableN [=valorN]]]; `
+
+```javascript
+var nombreDeVariable1 [= valor1] [, nombreDeVariable2 [= valor2] ... [, nombreDeVariableN [=valorN]]];
+```
 
 ## Estructuras de Control
 
@@ -53,6 +59,22 @@ _Su ámbito es global._
 ## Objetos y funciones del lenguaje
 
 ## Programación Asíncrona
+
+### Set
+
+### Map
+
+### WeakSet & WeakMap
+
+Weak: débil. Significa que solo van a poder almacenar referencias débiles, es decir que las llaves sean de tipo objeto. Esto le permite al recolector de basura que al momento que alguna de las referencias débiles que tengan estos WeakSets o WeaksMaps se hayan limpiado dentro de la logica de nuestra programación, cuando el recolector de basura del navegador ejecute su proceso, es decir que limpia lo que el navegador no necesite en la sesion que estes trabajando, todas estas referencias débiles al ya no existir las va a limpiar y eso mejora el rendimiento de nuestra aplicacién.
+
+**Carencias:**
+
+- No se pueden iterar, es decir recorrer cada elemento con un bucle como el for of, ya que no son propieades iterables.
+- No se pueden eliminar todos los elementos y propiedades directamente con el metodo clear
+- No podemos verificar su tamaño, es decir no tienen la propiedad size
+- No se pueden agregar los valores directamente como un set normal:
+  `const ws = new WeakSet([1, 2, 3, true, false, false, {}, {}, "HOLA", "HOla"])`
 
 ## Nuevos Tipos y Características
 
@@ -69,3 +91,7 @@ _Su ámbito es global._
 ## Single Page Aplication (SPA)
 
 ## Reactividad
+
+```
+
+```
