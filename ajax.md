@@ -133,7 +133,7 @@ Código HTML
 
   <body>
     <h2>Ajax - XMLHttpRequest</h2>
-    <div class="xhr"></div>
+    <div id="xhr"></div>
     <script src="xhr.js"></script>
   </body>
 </html>
