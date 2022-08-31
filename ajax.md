@@ -289,3 +289,47 @@ Estos son los pasos mas importantes, ahora podemos continuar con el desarrollo d
     });
 })();
 ```
+
+### API Fetch + Async Await
+
+SI bien es cierto con API Fetch se simplifica mucho la comunicación con servidores, la estructura de las promesas pueden llegar a no ser tan claras y pasa lo mismo que con las callbacks.
+
+Entonces podemos combinar las promesas con la programación asíncrona para tratar la respuesta y manejar los errores de una manera mas sencilla y visualmente mas clara y comprensible.
+
+Podemos resolver esto por medio de un bloque try-catch y funciones asíncronas, veamos el código completo.
+
+```javascript
+(() => {
+  const $fetchAsync = document.getElementById("fetch-async"),
+    $fragment = document.createDocumentFragment();
+  // declarar la función asíncrona
+  async function getData() {
+    // implementamos un bloque try catch
+    try {
+      let res = await fetch("https://jsonplaceholder.typicode.com/users"),
+        json = await res.json();
+      // console.log(res, json);
+      // validamos el estado de la petición
+      if (!res.ok)
+        //si la respuesta da error lanzamos un objeto error directamente en el catch
+        throw {
+          status: res.status,
+          statusText: res.statusText,
+        };
+      json.forEach((el) => {
+        const $li = document.createElement("li");
+        $li.innerHTML = `${el.name} -- ${el.email} -- ${el.phone}`;
+        $fragment.appendChild($li);
+      });
+      $fetchAsync.appendChild($fragment);
+    } catch (err) {
+      console.log(err);
+      let message = err.statusText || "Ocurrió un error";
+      $fetchAsync.innerHTML = `Error ${err.status}: ${message}`;
+    } finally {
+      console.log("Esto se ejecutará independientemente del try... catch");
+    }
+  }
+  getData();
+})();
+```
