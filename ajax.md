@@ -181,3 +181,111 @@ xhr.addEventListener("readystatechange", (e) => {
   console.log("Este mensaje se mostrara sin importar el estado de la petición");
 });
 ```
+
+### API Fetch
+
+Este mecanismo proporciona una interfaz para recuperar recursos, incluso a traves de la red. Ofrece un conjunto de características mas potente y flexible que _XMLHttpRequest_.
+
+Fetch ofrece una definición genérica de los objetos _Request_ y _Response_, el método Fetch toma un argumento obligatorio que es la ruta de acceso al recurso que se desea recuperar, devuelve una promesa que se resuelve en el _Response_, sea o no correcta, opcionalmente también puede pasar un objeto de opciones como segundo parámetro.
+
+Las propiedades mas importantes de la Interfaz response son:
+
+- response.ok: Contiene un estado indicando si la respuesta fue exitosa (estado en el rango 200-299) o no.
+- response.status: Contiene el código de estado de la respuesta (e.g., 200 si fue exitosa).
+- Response.statusText: Contiene el mensaje de estado correspondiente al código de estado (e.g., OK para el Código 200).
+
+Y sus métodos:
+
+- Response.error(): Devuelve un nuevo objeto Respuesta asociado a un error de red.
+- Body.blob(): Toma un flujo Response y lo lee hasta completarlo. Devuelve una promesa que resuelve con un Blob.
+- Body.formData(): Toma un flujo Response y lo lee hasta completarlo. Devuelve una promesa que resuelve con un objeto FormData.
+- Body.json(): Recibe un flujo Response y lo lee hasta completarlo. Devuelve una promesa que resuelve como JSON el texto del Body enviado.
+- Body.text(): Recibe un flujo Response y lo lee hasta completarlo. Devuelve una promesa que resuelve con un USVString (en-US) (texto).
+
+[Revisar la documentación de MDN para mas información](https://developer.mozilla.org/es/docs/Web/API/Response)
+
+Ejemplo:
+
+Como ya comentamos fetch devuelve una promesa que se resuelve en el response, veamos que devuelve la interfaz si ejecutamos el siguiente código.
+
+```javascript
+(() => {
+  fetch("https://jsonplaceholder.typicode.com/users").then((res) => {
+    console.log(res);
+  });
+})();
+```
+
+![fetch response](fetch-response.png)
+
+Listo, ya conocemos un poco mas esta interfaz, ahora validemos el estado de la petición.
+
+```javascript
+(() => {
+  fetch("https://jsonplaceholder.typicode.com/users")
+    //  validamos la respuesta
+    .then((res) => (res.ok ? res.json() : Promise.reject()))
+    .then((json) => {
+      console.log(json);
+    });
+})();
+```
+
+Las bondades de las promesas nos permiten tratar los error en el catch, usemos el método error que nos devuelve un nuevo objeto Response con el error de red asociado.
+
+```javascript
+(() => {
+  const $fetch = document.getElementById("fetch"),
+    $fragment = document.createDocumentFragment();
+  fetch("https://jsonplaceholder.typicode.com/users")
+    //  validamos la respuesta
+    .then((res) => (res.ok ? res.json() : Promise.reject()))
+    .then((json) => {
+      console.log(json);
+    })
+    //  en caso de error, personalizamos la respuesta
+    .catch((err) => {
+      console.log(err);
+      let message = err.statusText || "Ocurrió un error";
+      $fetch.innerHTML = `Error ${err.status}: ${message}`;
+    });
+})();
+```
+
+Estos son los pasos mas importantes, ahora podemos continuar con el desarrollo del código según nuestras necesidades, completemos el código para obtener el mismo resultado del ejemplo anterior.
+
+```javascript
+(() => {
+  const $fetch = document.getElementById("fetch"),
+    $fragment = document.createDocumentFragment();
+
+  //fetch("assets/users.json")
+  fetch("https://jsonplaceholder.typicode.com/users")
+    /* .then((res) => {
+      console.log(res);
+      return res.ok ? res.json() : Promise.reject(res);
+    }) */
+    .then((res) => (res.ok ? res.json() : Promise.reject(res)))
+    .then((json) => {
+      console.log(json);
+      //$fetch.innerHTML = json;
+      json.forEach((el) => {
+        const $li = document.createElement("li");
+        $li.innerHTML = `${el.name} -- ${el.email} -- ${el.phone}`;
+        $fragment.appendChild($li);
+      });
+
+      $fetch.appendChild($fragment);
+    })
+    .catch((err) => {
+      console.log(err);
+      let message = err.statusText || "Ocurrió un error";
+      $fetch.innerHTML = `Error ${err.status}: ${message}`;
+    })
+    .finally(() => {
+      console.log(
+        "Esto se ejecutará independientemente del resultado de la Promesa Fetch"
+      );
+    });
+})();
+```
